@@ -10,7 +10,7 @@ def test_response_content():
     url = "https://reqres.in/api/users/2"
     response =requests.get(url).json()
     print(response)
-    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11111")
 
 def test_response_status_code_404():
     url = "https://reqres.in/api/users/23"
