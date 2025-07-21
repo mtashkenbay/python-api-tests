@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build & Test') {
+            steps {
+                script {
+                    docker.image('python:3.11').inside {
+                        sh 'pip install -r requirements.txt'
+                        sh 'pytest'
+                    }
+                }
+            }
+        }
+    }
+}
