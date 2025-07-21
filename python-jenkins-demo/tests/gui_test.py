@@ -1,9 +1,6 @@
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import Page
 
-def test_open_url():
-    with sync_playwright() as p:
-        b = p.chromium.launch(headless=False)
-        page = b.new_page()
-        page.goto("https://the-internet.herokuapp.com/")
+def test_open_url(page: Page, base_url):
+    page.goto(base_url,wait_until="domcontentloaded")
 
-        assert "The Internet" in page.title()
+    assert "The Internet" in page.title()
